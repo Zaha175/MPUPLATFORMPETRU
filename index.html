@@ -289,7 +289,7 @@
   </main>
 
   <script>
-    function showDescription(category) {
+   function showDescription(category) {
   // Ascunde toate descrierile
   let descriptions = document.querySelectorAll('.description');
   descriptions.forEach(description => {
@@ -300,16 +300,7 @@
   if (description) {
     description.classList.add('active');
   }
-
-  // Active Menu-Highlight
-  let menuItems = document.querySelectorAll('.menu-item');
-  menuItems.forEach(item => item.classList.remove('active'));
-  let activeItem = document.querySelector(`.menu-item[onclick="showDescription('${category}')"]`);
-  if (activeItem) {
-    activeItem.classList.add('active');
-  }
 }
-
 
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
@@ -322,6 +313,7 @@ window.onload = () => {
     document.body.classList.add('dark-mode');
   }
 };
+
 
   </script>
 
