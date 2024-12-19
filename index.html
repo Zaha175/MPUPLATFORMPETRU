@@ -289,19 +289,25 @@
   </main>
 
   <script>
-   function showDescription(category) {
-  // Ascunde toate descrierile
+    function showDescription(category) {
   let descriptions = document.querySelectorAll('.description');
   descriptions.forEach(description => {
     description.classList.remove('active');
   });
-  // Afișează descrierea corespunzătoare, dacă există
   let description = document.getElementById(`${category}-description`);
   if (description) {
     description.classList.add('active');
   }
-}
 
+  let menuItems = document.querySelectorAll('.menu-item');
+  menuItems.forEach(item => {
+    item.classList.remove('active'); // Entfernt die Klasse von allen
+  });
+  let activeMenuItem = document.querySelector(`.menu-item[onclick="showDescription('${category}')"]`);
+  if (activeMenuItem) {
+    activeMenuItem.classList.add('active'); // Fügt die Klasse dem aktuellen hinzu
+  }
+}
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
